@@ -7,7 +7,16 @@ class ReviewController {
     const { country, keyword } = req.query
     try {
       const response = await axios.get(`${BASE_URL}/reviews/picks.json?api-key=${API_KEY}`)
-      res.status(200).json(response.data)
+      let review = response.data.results.map(el => {
+        return {
+          display_title: el.display_title,
+          headline: el.headline,
+          summary_short: el.summary_short,
+          link: el.link.url,
+          multimedia: el.multimedia.src
+        }
+      })
+      res.status(200).json(review)
     } catch (error) {
       next(error)
     }
