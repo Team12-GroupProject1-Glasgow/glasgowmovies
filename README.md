@@ -119,7 +119,7 @@ Response:
 ### POST /loginGoogle
 
 description: 
-  sign in as Ggoogle user
+  sign in as Google user
 
 Request:
 
