@@ -18,7 +18,7 @@
 
     <!-- LOGIN PAGE -->
 
-    <!-- <div id="auth-page">
+    <div id="auth-page">
         <div id="login-page" class="card mt-4 text-center">
             <h4>Log In</h4>
             <div class="text-center intro"> <img src="https://i.imgur.com/uNiv4bD.png" width="160"></div>
@@ -40,13 +40,12 @@
             <br>
             <div>
                 <a id="register">Don't have account? Register</a>
+                <div id="g-sign">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
             </div>
         </div>
-    </div> -->
 
-    <!-- REGISTER PAGE -->
-
-    <!-- <div id="auth-page">
         <div id="register-page" class="card mt-4 text-center">
             <h4>Register</h4>
             <div class="text-center intro"> <img src="https://i.imgur.com/uNiv4bD.png" width="160"></div>
@@ -63,10 +62,14 @@
                 <br>
                 <div class="mt-2">
                     <input type="button" class="btn btn-primary btn-block" id="register-btn" value="Register">
+                    
                 </div>
             </form>
         </div>
-    </div> -->
+    </div>
+
+    <!-- REGISTER PAGE -->
+
 
     <!-- MOVIE PAGE-->
 
@@ -77,13 +80,41 @@
           </div>
           <div id="flex-container-two" class="container">
               <div id="flex-one">
-                  <div id="sub-flex-one">
-                      
 
-                  </div>
+                  
                   <div id="sub-flex-one">
-                      
+                        <div id="mini-flex-one">
+                            <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                <img id="img-type-1" src="https://cdn.worldvectorlogo.com/logos/new-york-times.svg">
+                            </div>
+                        </div>
+                        <div id="mini-flex-two" class="list-group list-group-flush">
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                        </div>
                   </div>
+                  
+
+                  
+                  <div id="sub-flex-one">
+                    <div id="sub-flex-one">
+                        <div id="mini-flex-one">
+                            <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                <h4>&nbsp;NYT</h4>
+                            </div>
+                        </div>
+                        <div id="mini-flex-two" class="list-group list-group-flush">
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                            <div id="mini-mini-two">asdsa</div>
+                        </div>
+                    </div>
+                  </div>
+                  
+
               </div>
               <div id="flex-two">
                   <div id="sub-flex-two-static">
@@ -112,10 +143,6 @@
       </div>
   </div>
   
-  <!-- google signin simpan dalam login form!-->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  <!-- google signin -->
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- google signin -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
