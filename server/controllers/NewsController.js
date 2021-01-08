@@ -4,11 +4,10 @@ const BASE_URL = "http://newsapi.org/v2/"
 
 class NewsController {
   static async findAll(req, res, next) {
-    const { country, keyword } = req.query
+    const keyword = req.query
     try {
-      const response = await axios.get(`${BASE_URL}/top-headlines`, {
+      const response = await axios.get(`${BASE_URL}/everything`, {
         params: {
-          country: country || "us",
           q: keyword || "movie",
           apiKey: API_KEY,
         },

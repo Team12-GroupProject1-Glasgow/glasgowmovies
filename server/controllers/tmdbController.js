@@ -12,7 +12,7 @@ class TmdbController {
           title: el.title,
           rate: el.vote_average,
           release: el.release_date,
-          poster: `https://image.tmdb.org/t/p/w500/${el.poster_path}`
+          poster: `https://image.tmdb.org/t/p/w500${el.poster_path}`
         }
       })
       res.status(200).json(movies)
