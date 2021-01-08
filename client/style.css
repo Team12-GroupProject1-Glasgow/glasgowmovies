@@ -8,11 +8,24 @@ body {
     margin: 5px;
 } */
 
+#img-type-1 {
+    width: 100%;
+    border-radius: 20px;
+}
+
+
 #auth-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh
+}
+
+
+#g-sign {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -71,14 +84,44 @@ body {
 
 #sub-flex-one {
     background-color: #222831;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#mini-flex-one {
+    flex-grow: 1;
+}
+
+#mini-flex-two {
+    flex-grow: 8;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#mini-flex-two-1 {
+    flex-grow: 8;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 #sub-flex-two {
-    padding: 10px;
+    padding: none;
     border: none;
     margin: 2px;
     flex: 1;
     border-radius: 20px;
     background-color: rgb(82, 93, 104);
+    display: flex;
+    justify-content: flex-start;
 }
 
+#img-type-2 {
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.img-thumbnail {
+    width: 100px;
+}
