@@ -13,6 +13,8 @@ function checkAuth() {
       $('#login-page').hide();
       $('#register-page').hide();
       $('#movie-page').show();
+      getTmdb();
+      getReview();
   }
 }
 
@@ -104,3 +106,94 @@ $('#logout-btn').click(function(event){
   localStorage.clear();
   checkAuth();
 })
+
+function getTmdb() {
+  $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/tmdb`,
+      headers: { access_token: localStorage.access_token }
+  })
+  .done(res => {
+      var tmdbList = res;
+      $('#flex-two').empty();
+      for (var i = 0; i < 5; i++) {
+        $('#flex-two').append(`
+        <div id="sub-flex-two">
+          <div id="img-type-2"><img src="${tmdbList[i].poster}" class="img-thumbnail"></div>
+          <div>
+          <h6><b>${tmdbList[i].title}</b></h6>
+          <br>
+          <p>
+          <h10><b>Release Date</b></h10>
+          <span>${tmdbList[i].release}</span>
+          </p>
+          <h10><b>Rating</b></h10>
+          <span>${tmdbList[i].rate}</span>
+          </div>
+        </div>
+        `);
+      }
+  })
+  .fail(err => {
+      console.log(err)
+  })
+}
+
+function getTmdb() {
+  $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/tmdb`,
+      headers: { access_token: localStorage.access_token }
+  })
+  .done(res => {
+      var tmdbList = res;
+      $('#flex-two').empty();
+      for (var i = 0; i < 5; i++) {
+        $('#flex-two').append(`
+        <div id="sub-flex-two">
+          <div id="img-type-2"><img src="${tmdbList[i].poster}" class="img-thumbnail"></div>
+          <div>
+          <br>
+          <h6><b>${tmdbList[i].title}</b></h6>
+          <br>
+          <p>
+          <h10><b>Release Date</b></h10>
+          <span>${tmdbList[i].release}</span>
+          </p>
+          <h10><b>Rating</b></h10>
+          <span>${tmdbList[i].rate}</span>
+          </div>
+        </div>
+        `);
+      }
+  })
+  .fail(err => {
+      console.log(err)
+  })
+}
+
+function getReview() {
+  $.ajax({
+      method: 'GET',
+      url: `http://localhost:3000/review`,
+      headers: { access_token: localStorage.access_token }
+  })
+  .done(res => {
+      var reviewList = res;
+      $('#mini-flex-two').empty();
+      for (var i = 0; i < 4; i++) {
+        $('#mini-flex-two').append(`
+        <div id="mini-mini-two">
+        <p><b>${reviewList[i].headline}</b></p>
+        <p>${reviewList[i].summary_short}</p>
+        <a href="${reviewList[i].link}">Read here</a>
+        <img src="${reviewList[i].multimedia}" class="img-thumbnail">
+        </div>
+        `);
+      }
+  })
+  .fail(err => {
+      console.log(err)
+  })
+}
+
