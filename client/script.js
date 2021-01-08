@@ -33,12 +33,13 @@ function onSignIn(googleUser) {
   
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:3000/loginGoogle',
+    url: `http://localhost:3000/loginGoogle`,
     data: { id_token }
   })
   .done(response => {
     localStorage.setItem('access_token', response.access_token)
     // masukan fungsi-fungsi seperti login
+    checkAuth();
   })
   .fail((xhr, status) => {
     console.log(xhr, '<<<<<')
@@ -57,12 +58,12 @@ function googleLogout() {
 
 $('#register-btn').click(function(event) {
   event.preventDefault();
-  $('#error-message').val('');
+  $('#error-message-reg').remove();
   var email = $('#email-reg').val();
   var password = $('#password-reg').val();
   $.ajax({
       method: 'POST',
-      url: `${baseUrl}/register`,
+      url: `http://localhost:3000/register`,
       data: {email, password}
   })
   .done(res => {
@@ -76,12 +77,12 @@ $('#register-btn').click(function(event) {
 
 $('#login-btn').click(function(event){
   event.preventDefault();
-  $('#error-message').val('');
+  $('#error-message-log').remove();
   var email = $('#email-log').val();
   var password = $('#password-log').val();
   $.ajax({
       method: `POST`,
-      url: `${baseUrl}/login`,
+      url: `http://localhost:3000/login`,
       data: {email, password}
   })
   .done(res => {
@@ -90,11 +91,11 @@ $('#login-btn').click(function(event){
   })
   .fail(err => {
     console.log(err)
-      $('#error-message').append(`${err}`)
+      $('#error-message-log').append(`${err}`)
   })
   .always(() => {
-      $('#email').val('');
-      $('#password').val('');
+      $('#email-log').val('');
+      $('#password-log').val('');
   })
 })
 
