@@ -6,15 +6,21 @@ $(document).ready(function(){
 
 function checkAuth() {
   if (!localStorage.access_token) {
-      $('#login-page').show();
-      $('#register-page').hide();
-      $('#movie-page').hide();
+    $('#auth-page').show();
+    $('#login-page').show();
+    $('#register-page').hide();
+    $('#movie-page').hide();
+    $('#logout-btn').hide();
+    '#logout-btn'
   } else {
-      $('#login-page').hide();
-      $('#register-page').hide();
-      $('#movie-page').show();
-      getTmdb();
-      getReview();
+    $('#auth-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#movie-page').show();
+    $('#logout-btn').show();
+    getTmdb();
+    getReview();
+    NYTimes();
   }
 }
 
@@ -197,3 +203,28 @@ function getReview() {
   })
 }
 
+function NYTimes() {
+  console.log('NYTimesAPIfunc');
+  $.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/news',
+    headers: {
+      access_token: localStorage.access_token
+    }
+  })
+  .done(response => {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>> RESPONSE:', response);
+    $("#nytimesApiData").empty()
+    $("#nytimesApiData").append(
+      `<div id="nytimesApiData0">${response.articles[0].title}</div>
+      <div id="nytimesApiData1">${response.articles[1].title}</div>
+      <div id="nytimesApiData2">${response.articles[2].title}</div>
+      <div id="nytimesApiData3">${response.articles[3].title}</div>`
+    )
+  })
+  .fail((xhr, status) => {
+    console.log(xhr, '<<<<<FAIL')
+  })
+  .always(() => {
+  })
+}

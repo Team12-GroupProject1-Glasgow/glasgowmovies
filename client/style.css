@@ -98,6 +98,12 @@ body {
     flex-flow: column wrap;
 }
 
+#mini-flex-two-1 {
+    flex-grow: 8;
+    display: flex;
+    flex-flow: column wrap;
+}
+
 #sub-flex-two {
     padding: none;
     border: none;
